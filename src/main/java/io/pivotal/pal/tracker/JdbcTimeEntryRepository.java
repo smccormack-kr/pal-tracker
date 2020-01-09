@@ -15,10 +15,10 @@ import java.util.List;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class JdbcTimeEntryRepository implements TimeEntryRepository {
-    private JdbcTemplate template = new JdbcTemplate();
+    private final JdbcTemplate template;
 
     public JdbcTimeEntryRepository(DataSource dataSource) {
-        template.setDataSource(dataSource);
+        template = new JdbcTemplate(dataSource);
     }
 
     @Override
