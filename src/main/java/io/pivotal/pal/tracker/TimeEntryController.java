@@ -41,9 +41,9 @@ public class TimeEntryController {
     }
 
     @PutMapping("/{timeEntryId}")
-    public ResponseEntity update(@PathVariable long timeEntryId, @RequestBody TimeEntry expected) {
-        System.out.println(expected);
-        TimeEntry body = timeEntryRepository.update(timeEntryId,expected);
+    public ResponseEntity update(@PathVariable long timeEntryId, @RequestBody TimeEntry timeEntryToUpdate) {
+        System.out.println(timeEntryToUpdate);
+        TimeEntry body = timeEntryRepository.update(timeEntryId,timeEntryToUpdate);
         HttpStatus status;
         if (body != null) {
             status = HttpStatus.OK;
